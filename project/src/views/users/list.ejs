@@ -6,14 +6,24 @@
         <th class="border p-2 text-left">ID</th>
         <th class="border p-2 text-left">Username</th>
         <th class="border p-2 text-left">Role ID</th>
+        <th class="border p-2 text-left">Action</th>
       </tr>
     </thead>
     <tbody>
-      <% users.forEach(user => { %>
+      <% users.forEach(u => { %>
         <tr>
-          <td class="border p-2"><%= user.id %></td>
-          <td class="border p-2"><%= user.username %></td>
-          <td class="border p-2"><%= user.role_id %></td>
+          <td class="border p-2"><%= u.id %></td>
+          <td class="border p-2"><%= u.username %></td>
+          <td class="border p-2"><%= u.role_id %></td>
+          <td class="border p-2">
+            <a href="/users/edit/<%= u.id %>" class="text-blue-500 mr-2">Edit</a>
+            
+            <a href="/users/delete/<%= u.id %>" 
+               class="text-red-500" 
+               onclick="return confirm('Yakin ingin menghapus user <%= u.username %>?')">
+               Delete
+            </a>
+          </td>
         </tr>
       <% }); %>
     </tbody>

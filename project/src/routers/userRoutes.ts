@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/', checkPermission('user:view'), listUsers);
 router.post('/', checkPermission('user:create'), storeUser);
-router.delete('/:id', checkPermission('user:delete'), removeUser);
+router.get('/delete/:id', checkPermission('user:delete'), removeUser);
 
 export default router;
